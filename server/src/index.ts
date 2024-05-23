@@ -1,11 +1,13 @@
 import express, { Application, Request, Response } from "express";
+import cors from "cors";
 const app: Application = express();
 
+app.use(cors());
+app.use(express.json());
 
 app.all('/health', (req: Request, res: Response) => {
     res.send("⚡⚡⚡");
-})
-
+});
 
 app.get('/api/dashboard', (req: Request, res: Response) => {
     res.status(200).json({data: [
@@ -46,7 +48,7 @@ app.get('/api/dashboard', (req: Request, res: Response) => {
             description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.            '
         },
     ]})
-})
+});
 
 app.listen(4000, () => {
     console.log(`Server is listenting at ${4000}`);
