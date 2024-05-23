@@ -15,12 +15,16 @@ export default function Layout() {
                         toggleSidebar={() => { setOpen((state) => !state) }}
                     />
                 </div>
-                <div className="w-full xl:w-10/12" style={{ background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(226,153,44,0.5) 55%, rgba(24,123,163,0.7) 100%)" }}>
-                    <Header
-                        openSidebar={() => { setOpen((state) => !state) }}
-                    />
-                    <Outlet />
-                    <Footer />
+                <div className="relative w-full xl:w-10/12 bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/dash-bg-3.webp')"}}>
+                    <div className="absolute inset-0 bg-[rgba(0,0,0,0.6)]"></div>
+                    <div className="relative z-10">
+
+                        <Header
+                            openSidebar={() => { setOpen((state) => !state) }}
+                        />
+                        <Outlet />
+                        <Footer />
+                    </div>
                 </div>
             </div>
 
