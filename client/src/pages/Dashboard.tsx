@@ -2,6 +2,7 @@ import axios from "axios";
 import Card from "../components/Card/Card";
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../constants";
+import SkeletonCard from "../components/Skeleton/SkeletonCard";
 
 export default function Dashboard() {
 
@@ -30,7 +31,11 @@ export default function Dashboard() {
                 </div>
                 {loading ? (
                     <>
-                        <h2 className="font-semibold text-white text-lg">Loading...</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 lg:gap-6 px-6 lg:pl-24 lg:pr-14">
+                            {Array.from({ length: 9 }).map((_, index) => (
+                                <SkeletonCard key={index} />
+                            ))}
+                        </div>
                     </>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 lg:gap-6 px-6 lg:pl-24 lg:pr-14">
