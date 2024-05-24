@@ -5,7 +5,7 @@ const app: Application = express();
 app.use(cors());
 app.use(express.json());
 
-app.all('/health', (req: Request, res: Response) => {
+app.all('/api/health', (req: Request, res: Response) => {
     res.send("⚡⚡⚡");
 });
 
